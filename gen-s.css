@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Pacifico&display=swap');
+/* styles.css — simple responsive landing page */
+:root{
+  --bg:#000000;
+  --card:#373f4a;
+  --accent:#303232;
+  --muted:#adb1b8;
+  --glass: rgba(26, 19, 19, 0.03);
+  --radius:14px;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: linear-gradient(270deg, #1b1b1c, #232526, #1b1b1c);
+  background-size: 600% 600%;
+  animation: bgMove 18s ease-in-out infinite;
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+@keyframes bgMove {
+  0% {background-position:0% 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0% 50%}
+}
+.container{max-width:1100px;margin:0 auto;padding:12px}
+
+/* Hero */
+.hero{
+  background-image: url("genz-image.jpg");
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 48px 10px;
+  overflow: hidden;
+}
+.event-title{
+  font-family: 'Pacifico', cursive;
+  padding: 8px;
+  z-index: 2;
+  position: relative;
+  font-size: 5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  font-weight: 800;
+  font-size:clamp(28px,5vw,44px);
+  margin:0 0 4px;
+  top: 0;
+}
+.meta{
+  font-weight: 800;
+  padding: 8px;
+  z-index: 2;
+  position: relative;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  color: var(--muted);
+  margin-bottom: 10px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.meta > div {
+  background: rgba(30,34,44,0.45);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 8px 16px;
+  margin: 0 4px;
+  min-width: 120px;
+  max-width: 500px;
+  border: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* Countdown and CTA below hero background */
+.countdown, .cta-row {
+  position: static;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 10px 0 0 0;
+  max-width: none;
+  z-index: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.countdown {
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+.cta-row {
+  margin-top: 8px;
+  gap: 8px;
+  padding: 0;
+}
+
+/* New CTA Box */
+.cta-box {
+  background: rgba(30, 34, 44, 0.55);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  border-radius: 18px;
+  padding: 18px 18px 12px 18px;
+  margin: 18px auto 0 auto;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(6px);
+}
+
+.cta-box .countdown {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0 0 8px 0;
+  padding: 0;
+}
+
+.cta-box .cta-row {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .cta-box {
+    padding: 10px 4vw 8px 4vw;
+    max-width: 98vw;
+  }
+}
+
+/* About section event-sub style */
+.about .event-sub {
+  display: block;
+  margin: 0 auto 4px auto;
+  color: var(--muted);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+  padding: 1px 0 0 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.countdown{display:inline-flex;gap:8px;background:var(--glass);padding:8px;border-radius:12px;margin:10px 0}
+.time-block{min-width:60px;padding:4px;text-align:center}
+.time-block span{display:block;font-size:20px;font-weight:700}
+.time-block span.animated{color:#ffffff;
+  animation: popNum 0.4s cubic-bezier(.4,2,.6,1);
+}
+@keyframes popNum {
+  0% { transform: scale(1.3); opacity: 0.7; }
+  60% { transform: scale(0.85); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.time-block small{display:block;color:var(--muted);font-size:12px}
+
+.cta-row{margin-top:10px;display:flex;gap:8px;justify-content:center}
+.btn{background:linear-gradient(90deg,var(--accent),#fefefe);color:rgb(3, 3, 3); padding:7px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+.btn.secondary{ scroll-behavior: smooth;background:linear-gradient(90deg,var(--accent),#fefefe);border:1px solid rgb(255, 255, 255);color:var(--accent)}
+
+/* Sparkles */
+.sparkle {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: sparkle-float 3.5s linear infinite;
+  z-index: 2;
+}
+@keyframes sparkle-float {
+  0% { transform: translateY(0) scale(1); opacity: 0.7; }
+  70% { opacity: 1; }
+  100% { transform: translateY(-60px) scale(0.7); opacity: 0; }
+}
+
+/* Main content */
+.main-content{padding:18px 8px}
+.about p{ background-image: url(party-image.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 40px 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+  color:var(--muted)
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-top:6px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));padding:8px;border-radius:12px;text-align:center}
+.avatar{height:70px;width:70px;border-radius:10px;background:rgba(255,255,255,0.03);display:inline-flex;align-items:center;justify-content:center;margin:0 auto 6px;color:var(--muted)}
+.muted{color:var(--muted)}
+
+.faq details{background:var(--card);padding:8px;border-radius:10px;margin-bottom:4px}
+
+.left-side a.email-us {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0078d7; /* nice blue for email */
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  transition: 0.3s ease;
+}
+
+.left-side a.email-us:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+/* Footer */
+.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:10px 0;margin-top:18px}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* Join Us Section */
+.join-us {
+  text-align: center;
+  background: linear-gradient(135deg, #111, #222);
+  color: #fff;
+  padding: 8px 40px;
+  border-top: 3px solid #25d366;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border-top: 2px solid #25d366;
+  z-index: 1000;
+}
+
+.join-us h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #25d366;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.whatsapp {
+  background: #25d366;
+}
+
+.tiktok {
+  background: linear-gradient(45deg, #010101, #ff0050, #00f2ea);
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* MAIN CONTAINER */
+.join-us {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0d1117;
+  color: #fff;
+  padding: 18px 50px;
+  flex-wrap: wrap;
+  border-top: 2px solid #222;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* TEXT */
+.join-us p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #c9d1d9;
+}
+
+/* FLEX DIVS */
+.join-us div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* BUTTONS COMMON STYLE */
+.join-us a {
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+/* EMAIL BUTTON */
+.email-button {
+  background: linear-gradient(135deg, #0078ff, #005fcc);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 120, 255, 0.3);
+}
+
+.email-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 120, 255, 0.6);
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+}
+
+/* TIKTOK BUTTON */
+.tiktok {
+  background: linear-gradient(135deg, #ff0050, #000000);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 0, 80, 0.3);
+}
+
+.tiktok:hover {
+  transform: scale(1.08) rotate(-1deg);
+  box-shadow: 0 0 15px rgba(255, 0, 80, 0.6);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .join-us {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 20px;
+  }
+}
+
+/* Table Styles */
+.ticket-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 16px 0;
+  margin: 0 auto;
+  table-layout: fixed;
+}
+.ticket-table td {
+  background: rgba(30,34,44,0.45);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 18px 14px 14px 14px;
+  vertical-align: top;
+  color: #e6eef6;
+  font-size: 1.08rem;
+  min-width: 180px;
+  max-width: 260px;
+  word-break: break-word;
+  transition: box-shadow 0.2s;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.ticket-table td.early {
+  border-left: 4px solid #4ade80;
+}
+.ticket-table td.late {
+  border-left: 4px solid #facc15;
+}
+.ticket-table td.special {
+  border-left: 4px solid #a78bfa;
+}
+.ticket-table td strong, .ticket-table td b {
+  color: #fff;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    max-width: 98vw;
+    padding: 2vw;
+  }
+}
+@media (max-width: 900px) {
+  .hero {
+    padding: 18px 2vw 12px 2vw;
+    background-size: cover;
+  }
+  .event-title {
+    font-size: clamp(1.7rem, 7vw, 2.7rem);
+    padding: 4px;
+  }
+  .meta {
+    font-size: 1.2rem;
+    gap: 6px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .meta > div {
+    padding: 6px 8px;
+    font-size: 1rem;
+    margin: 2px 0;
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+  }
+  .cta-box {
+    padding: 10px 2vw 8px 2vw;
+    max-width: 99vw;
+  }
+  .countdown, .cta-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .btn {
+    font-size: 0.98rem;
+    padding: 6px 10px;
+  }
+  .main-content {
+    padding: 6px 2vw;
+  }
+  .about .event-sub {
+    font-size: 1rem;
+    padding: 2px 0 0 0;
+  }
+  .about p {
+    padding: 10px 2vw;
+    font-size: 0.98rem;
+  }
+  .ticket-table td {
+    font-size: 0.95rem;
+    padding: 10px 4px 8px 6px;
+  }
+}
+@media (max-width: 700px) {
+  .container {
+    padding: 1vw;
+  }
+  .meta {
+    font-size: 1rem;
+    gap: 4px;
+  }
+  .event-title {
+    font-size: clamp(1.2rem, 8vw, 2rem);
+  }
+  .cta-box {
+    padding: 6px 1vw 6px 1vw;
+  }
+  .main-content {
+    padding: 2px 1vw;
+  }
+  .about .event-sub {
+    font-size: 0.95rem;
+  }
+  .about p {
+    padding: 6px 1vw;
+    font-size: 0.93rem;
+  }
+  .ticket-table {
+    display: block;
+    width: 100%;
+  }
+  .ticket-table tr {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .ticket-table td {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-bottom: 6px;
+    font-size: 0.93rem;
+    padding: 8px 2vw 6px 2vw;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    padding: 0;
+    max-width: 100vw;
+  }
+  .hero {
+    padding: 8px 0 6px 0;
+  }
+  .event-title {
+    font-size: clamp(1rem, 10vw, 1.3rem);
+    padding: 2px;
+  }
+  .meta {
+    font-size: 0.93rem;
+    gap: 2px;
+  }
+  .meta > div {
+    padding: 4px 2vw;
+    font-size: 0.93rem;
+  }
+  .cta-box {
+    padding: 4px 0 4px 0;
+    max-width: 100vw;
+  }
+  .btn {
+    font-size: 0.93rem;
+    padding: 4px 4vw;
+  }
+  .main-content {
+    padding: 0 0 2px 0;
+  }
+  .about .event-sub {
+    font-size: 0.9rem;
+  }
+  .about p {
+    padding: 4px 2vw;
+    font-size: 0.9rem;
+  }
+  .ticket-table td {
+    font-size: 0.9rem;
+    padding: 6px 2vw 4px 2vw;
+  }
+  
+}
