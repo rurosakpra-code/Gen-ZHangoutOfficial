@@ -244,68 +244,9 @@ body{
 .site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:10px 0;margin-top:18px}
 .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:12px}
 
-/* Join Us Section */
-.join-us {
-  text-align: center;
-  background: linear-gradient(135deg, #111, #222);
-  color: #fff;
-  padding: 8px 40px;
-  border-top: 3px solid #25d366;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  border-top: 2px solid #25d366;
-  z-index: 1000;
-}
-
-.join-us h3 {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #25d366;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.social-links a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  text-decoration: none;
-  color: #fff;
-  transition: all 0.3s ease;
-}
-
-.whatsapp {
-  background: #25d366;
-}
-
-.tiktok {
-  background: linear-gradient(45deg, #010101, #ff0050, #00f2ea);
-}
-
-.social-links a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
 /* MAIN CONTAINER */
 .join-us {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   background: #0d1117;
   color: #fff;
   padding: 18px 5%;
@@ -315,6 +256,7 @@ body{
   gap: 1rem; /* ensures spacing even when items wrap */
   width: 100%;
   box-sizing: border-box;
+   font-size: clamp(24px, 5vw, 44px);
 }
 
 /* FADE-IN ANIMATION */
@@ -326,7 +268,7 @@ body{
 /* TEXT */
 .join-us p {
   margin: 0;
-  font-size: clamp(14px, 2vw, 16px); /* resizes automatically */
+  font-size: clamp(24px, 5vw, 44px); /* resizes automatically */
   font-weight: 500;
   color: #c9d1d9;
 }
@@ -350,7 +292,7 @@ body{
   display: inline-block;
   position: relative;
   overflow: hidden;
-  font-size: clamp(14px, 2vw, 16px);
+   font-size: clamp(24px, 5vw, 44px);
 }
 
 /* EMAIL BUTTON */
@@ -577,3 +519,4 @@ body{
   }
   
 }
+
