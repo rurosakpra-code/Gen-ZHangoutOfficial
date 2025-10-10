@@ -146,18 +146,23 @@ body{
 }
 
 /* About section event-sub style */
-.about .event-sub {
+.event-sub {
   display: block;
-  margin: 0 auto 4px auto;
   color: var(--muted);
-  font-size: 1.5rem;
   font-weight: 600;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-  padding: 1px 0 0 0;
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-family: 'Pacifico', cursive;
+  text-align: center; /* centers nicely on all screens */
+  margin: 0 auto 8px auto;
+  padding: 8px;
+  max-width: 90%;
+  line-height: 1.2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 2;
+  font-size: clamp(24px, 5vw, 44px); /* scales smoothly across devices */
+  top: 0;
 }
 
 .countdown{display:inline-flex;gap:8px;background:var(--glass);padding:8px;border-radius:12px;margin:10px 0}
@@ -303,10 +308,13 @@ body{
   align-items: center;
   background: #0d1117;
   color: #fff;
-  padding: 18px 50px;
+  padding: 18px 5%;
   flex-wrap: wrap;
   border-top: 2px solid #222;
   animation: fadeIn 1s ease-in-out;
+  gap: 1rem; /* ensures spacing even when items wrap */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* FADE-IN ANIMATION */
@@ -318,7 +326,7 @@ body{
 /* TEXT */
 .join-us p {
   margin: 0;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px); /* resizes automatically */
   font-weight: 500;
   color: #c9d1d9;
 }
@@ -328,6 +336,8 @@ body{
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap; /* prevents overflow */
+  justify-content: center;
 }
 
 /* BUTTONS COMMON STYLE */
@@ -340,6 +350,7 @@ body{
   display: inline-block;
   position: relative;
   overflow: hidden;
+  font-size: clamp(14px, 2vw, 16px);
 }
 
 /* EMAIL BUTTON */
@@ -348,7 +359,6 @@ body{
   color: #fff;
   box-shadow: 0 4px 10px rgba(0, 120, 255, 0.3);
 }
-
 .email-button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(0, 120, 255, 0.6);
@@ -360,7 +370,6 @@ body{
   color: white;
   box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
 }
-
 .whatsapp:hover {
   transform: scale(1.08);
   box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
@@ -372,19 +381,21 @@ body{
   color: white;
   box-shadow: 0 4px 10px rgba(255, 0, 80, 0.3);
 }
-
 .tiktok:hover {
   transform: scale(1.08) rotate(-1deg);
   box-shadow: 0 0 15px rgba(255, 0, 80, 0.6);
 }
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .join-us {
     flex-direction: column;
     text-align: center;
-    gap: 15px;
-    padding: 20px;
+    gap: 20px;
+    padding: 25px 5%;
+  }
+  .join-us div {
+    justify-content: center;
   }
 }
 
